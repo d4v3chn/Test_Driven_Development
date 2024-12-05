@@ -76,4 +76,11 @@ class TDD_24278688 {
 		double result = account.withdraw(1001, 300);
 		assertEquals(-2.0, result);
 	}
+	@Test
+	void testWithdrawNegative() {
+		BankAccountManagementSystem_24278688 account = new BankAccountManagementSystem_24278688();
+		account.createAccount(1001, 200);
+		double result = account.withdraw(1001, -300);
+		assertEquals(-2.0, result);
+	}
 }

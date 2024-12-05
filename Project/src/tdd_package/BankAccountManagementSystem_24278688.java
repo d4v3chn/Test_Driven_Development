@@ -14,7 +14,7 @@ public class BankAccountManagementSystem_24278688 {
     public boolean createAccount(int accountNumber, double initialBalance) {
        
 
-        if(accounts.containsKey(accountNumber) || initialBalance < 0 ) {
+        if(accounts.containsKey(accountNumber) || initialBalance < 0 ) { 
             return false;
         }
 
@@ -25,7 +25,7 @@ public class BankAccountManagementSystem_24278688 {
 
     public double deposit(int accountNumber, double amount) {
 
-        if (!accounts.containsKey(accountNumber)) {
+        if (!accounts.containsKey(accountNumber) || amount < 0) { // added OR initialBalance is negative
             return -1.0;
         }
 

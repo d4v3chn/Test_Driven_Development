@@ -25,11 +25,13 @@ public class BankAccountManagementSystem_24278688 {
 
     public double deposit(int accountNumber, double amount) {
 
-        if (!accounts.containsKey(accountNumber) || amount < 0) { // added OR initialBalance is negative
+        if (!accounts.containsKey(accountNumber) || amount < 0) { // p-use for accountNumber & amount
             return -1.0;
+        }else if (amount == 0) { // p-use for amount
+        	return -3.0; // Can't deposit 0;
         }
 
-        double balance = accounts.get(accountNumber);
+        double balance = accounts.get(accountNumber); // c-use
         balance += amount;
         accounts.put(accountNumber, balance);
         return balance;
@@ -42,17 +44,17 @@ public class BankAccountManagementSystem_24278688 {
 
         double balance = accounts.get(accountNumber);
 
-        if (amount<=0) {
+        if (amount == 0 || balance == 0){ 
+
+            return -3.0; // Can't withdraw 0;
+
+        }else if (amount<=0) {
             
             return -1.0;
             
         } else  if (amount >= balance) {
                
             return -2.0;
-
-        } else if (amount == 0 || balance == 0){
-
-            return -3.0;
 
         }
 
@@ -62,6 +64,9 @@ public class BankAccountManagementSystem_24278688 {
     }
 
     public double getAccountBalance(int accountNumber) {
+    	if (!accounts.containsKey(accountNumber)) {
+    		return 0.0;
+    	}
     
         double balance = 0;
 

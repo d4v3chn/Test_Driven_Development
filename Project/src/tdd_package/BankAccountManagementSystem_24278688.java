@@ -31,10 +31,10 @@ public class BankAccountManagementSystem_24278688 {
         	return -3.0; // Can't deposit 0;
         }
 
-        double balance = accounts.get(accountNumber); // c-use
-        balance += amount;
-        accounts.put(accountNumber, balance);
-        return balance;
+        double balance = accounts.get(accountNumber); // Definition of balance
+        balance += amount; // c-use of amount, definition of balance
+        accounts.put(accountNumber, balance); // Definitions of accounts
+        return balance; // c-use of balance
     }
 
     public double withdraw(int accountNumber, double amount) {
@@ -48,11 +48,11 @@ public class BankAccountManagementSystem_24278688 {
 
             return -3.0; // Can't withdraw 0;
 
-        }else if (amount<=0) {
+        }else if (amount < 0) { // Changed from <= to <
             
             return -1.0;
             
-        } else  if (amount >= balance) {
+        } else  if (amount > balance) { // Changed from >= to >
                
             return -2.0;
 

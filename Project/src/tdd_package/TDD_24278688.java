@@ -8,7 +8,7 @@ class TDD_24278688 {
 	
 	// Testing createAccount method
 	@Test
-	void testCreateSuccess() {
+	void testCreateAccountSuccess() {
 		BankAccountManagementSystem_24278688 account = new BankAccountManagementSystem_24278688();
 		boolean result = account.createAccount(1001, 200.0);
 		assertEquals(true, result);
@@ -53,7 +53,7 @@ class TDD_24278688 {
 		BankAccountManagementSystem_24278688 account = new BankAccountManagementSystem_24278688();
 		account.createAccount(1001, 200);
 		double result = account.deposit(1001, -400);
-		assertEquals(-1.0, result); // no implementation to handle negative deposit
+		assertEquals(-1.0, result);
 	}
 	@Test
 	void testDepositNegativeDepositWithNoAccount() {
